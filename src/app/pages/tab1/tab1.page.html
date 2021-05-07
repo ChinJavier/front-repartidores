@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary">
+      Repartidores en el sistema
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="cargarRepartidores()">
+        <ion-icon slot="icon-only" name="bicycle-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list>
+
+    <ion-list-header>
+      <ion-label color="primary">Repartidor</ion-label>
+      <ion-button>Disponibilidad</ion-button>
+    </ion-list-header>
+
+
+    <ion-item *ngFor="let repartidor of repartidores">
+
+      <ion-avatar slot="start">
+        <ion-img [src]="repartidor.img"></ion-img>
+      </ion-avatar>
+
+      <ion-label>
+        <h2>{{repartidor.nombre}}</h2>
+        <p>Placa: {{repartidor.placa}}</p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button slot="end">
+          <ion-icon slot="icon-only" name="checkbox" color="{{repartidor.estado}}"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>
